@@ -3,7 +3,7 @@
     <div class="box">
       <div v-for="imgLi in prizeList" :key="imgLi.picUrlDesc" ref="pice"
            :style="{'backgroundImage':'url('+imgLi.bgSrc+')'}">
-        <img :src="imgLi.picUrlDesc" v-if="imgLi.picUrlDesc"/>
+        <img :src="imgLi.picUrlDesc"/>
       </div>
     </div>
   </div>
@@ -17,53 +17,20 @@
     data() {
       return {
         prizeList: [
-          {
-            prizeName: "奖品1",
-            bgSrc: require('@/assets/lottery9/border.png'),
-            picUrlDesc: require("@/assets/lottery9/11.jpg")
-          },
-          {
-            prizeName: "奖品2",
-            bgSrc: require('@/assets/lottery9/border.png'),
-            picUrlDesc: require("@/assets/lottery9/12.jpg")
-          },
-          {
-            prizeName: "奖品3",
-            bgSrc: require('@/assets/lottery9/border.png'),
-            picUrlDesc: require("@/assets/lottery9/13.jpg")
-          },
-          {
-            prizeName: "奖品4",
-            bgSrc: require('@/assets/lottery9/border.png'),
-            picUrlDesc: require("@/assets/lottery9/14.jpg")
-          },
-          {prizeName: "", bgSrc: require('@/assets/lottery9/prizeBtnIng.png')},
-          {
-            prizeName: "奖品5",
-            bgSrc: require('@/assets/lottery9/border.png'),
-            picUrlDesc: require("@/assets/lottery9/15.jpg")
-          },
-          {
-            prizeName: "奖品6",
-            bgSrc: require('@/assets/lottery9/border.png'),
-            picUrlDesc: require("@/assets/lottery9/16.jpg")
-          },
-          {
-            prizeName: "奖品7",
-            bgSrc: require('@/assets/lottery9/border.png'),
-            picUrlDesc: require("@/assets/lottery9/17.jpg")
-          },
-          {
-            prizeName: "奖品8",
-            bgSrc: require('@/assets/lottery9/border.png'),
-            picUrlDesc: require("@/assets/lottery9/18.jpg")
-          },
-        ],
-        timer1: '',
-        timer2: '',
-        prizeIndex: 0,
+          {prizeName: "奖品1",bgSrc: require('@/assets/lottery9/border.png'),picUrlDesc: require("@/assets/lottery9/11.jpg")},
+          {prizeName: "奖品2", bgSrc: require('@/assets/lottery9/border.png'),picUrlDesc: require("@/assets/lottery9/12.jpg")},
+          {prizeName: "奖品3",bgSrc: require('@/assets/lottery9/border.png'),picUrlDesc: require("@/assets/lottery9/13.jpg")},
+          {prizeName: "奖品4",bgSrc: require('@/assets/lottery9/border.png'),picUrlDesc: require("@/assets/lottery9/14.jpg")},
+          {prizeName: "抽奖按钮",bgSrc: require('@/assets/lottery9/border1.png'),picUrlDesc: require("@/assets/lottery9/prizeBtnIng.png")},
+          {prizeName: "奖品5",bgSrc: require('@/assets/lottery9/border.png'), picUrlDesc: require("@/assets/lottery9/15.jpg")},
+          {prizeName: "奖品6",bgSrc: require('@/assets/lottery9/border.png'), picUrlDesc: require("@/assets/lottery9/16.jpg")},
+          {prizeName: "奖品7",bgSrc: require('@/assets/lottery9/border.png'), picUrlDesc: require("@/assets/lottery9/17.jpg")},
+          {prizeName: "奖品8",bgSrc: require('@/assets/lottery9/border.png'), picUrlDesc: require("@/assets/lottery9/18.jpg")}],
+        timer1: '',//控制快速旋转的定时器
+        timer2: '',//控制慢速旋转的定时器
+        prizeIndex: 0,//转动到的位置
         arrNum: [0, 1, 2, 5, 8, 7, 6, 3], // 定义转动的顺序
-        stopIndex: '',
+        stopIndex: '',//停止的位置
         clickFlage: true,//是否能点击进行抽奖
         prize: '',//奖品
       }
